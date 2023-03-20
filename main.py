@@ -1,15 +1,12 @@
 #Import Packages
 
 import polars as pl
-import json
 from musixmatch import Musixmatch
 
 musixmatch = Musixmatch('915a5145eef8a1ac16c4a7a69aa8f81c')
 
-import os
 import nltk
-from nltk.tokenize import RegexpTokenizer
-from collections import Counter
+from nltk import RegexpTokenizer
 import py3langid as langid
 
 #This is an empty data set to create the columns of our main mega_meta_df
@@ -194,4 +191,4 @@ for id in track_id_collection:
 
 full_data_df = mega_meta_df.join(all_word_df, on = "track_id")
 
-full_data_df.write_csv('full_data_df.csv', sep=',')
+full_data_df.write_csv('musixmatch-top100-lyrics.csv', sep=',')
